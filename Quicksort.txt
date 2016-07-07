@@ -1,0 +1,84 @@
+#include <cstdio>
+using namespace std;
+
+void quickSort(int arr[], int left, int right)
+{
+
+      int i = left, j = right;
+      int tmp;
+      int mid = (left + right) / 2;
+      printf("\n i>%d  j>%d  left>%d  right> %d mid> %d\n\n",i,j,left,right,arr[mid]);
+
+     while (1)
+         {
+
+             while (arr[i] < arr[mid])
+                {
+                    printf("\ni> %d arr[i]> %d  mid> %d\n",i,arr[i],arr[mid]);
+                     i++;
+                     printf("\n  i>%d  j>%d\n",i,j);
+                }
+
+
+            while (arr[j] > arr[mid])
+            {
+                printf("\nj> %d arr[j]> %d  mid> %d\n",j,arr[i],arr[mid]);
+                j--;
+                printf("\n  i> %d  j>%d\n",i,j);
+            }
+
+
+
+             if (i <= j)
+                {
+                    printf("\n\n");
+
+                  for(int k=0;k<5;k++)
+                     {
+                        printf("%d ",arr[k]);
+                    }
+                    printf("\n\nSwapped because i> %d is less/equal j>%d\n",i,j);
+
+                        tmp = arr[i];
+                  arr[i] = arr[j];
+                  arr[j] = tmp;
+                  i++;
+                  j--;
+
+
+                  printf("\n\n");
+                 for(int k=0;k<5;k++)
+                    {
+                    printf("%d ",arr[k]);
+                     }
+                  break;
+               }
+         }
+
+
+
+            printf("\n\n\tleft> %d j> %d\n",left,j);
+            printf("\n\n\tright> %d i> %d\n",right,i);
+
+      if (left < j)
+
+            quickSort(arr, left, j);
+
+
+      if (i < right)
+
+            quickSort(arr, i, right);
+
+}
+
+int main()
+{
+    int arr[5]={98,6,45,25,69};
+
+    quickSort(arr,0,4);
+
+    for(int i=0;i<5;i++)
+    {
+       // printf("%d ",arr[i]);
+    }
+}
